@@ -1,8 +1,13 @@
 <script>
 export default {
   props: {
-    
+    progress: Number
   },
+  computed: {
+    progressWidth() {
+      return `width: ${ this.progress }%`
+    }
+  }
 }
 </script>
 
@@ -28,7 +33,7 @@ export default {
     </div>
     <div
       class="line line_red line_thick line_progress"
-      style="width: 386px"
+      :style="progressWidth"
     ></div>
   </header>
 </template>

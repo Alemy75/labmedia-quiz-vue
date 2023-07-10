@@ -211,7 +211,13 @@ export default {
       ],
     }
   },
-  computed: {},
+  computed: {
+    
+    progress() {
+      let progressStep = 100 / this.questions.length
+      return this.current * progressStep + progressStep
+    }
+  },
   methods: {
     setStatus(value) {
       return (this.status = value)
@@ -231,7 +237,7 @@ export default {
 </script>
 
 <template>
-  <Header />
+  <Header :progress="progress"/>
   <section class="content">
     <Start v-if="status === 'start'" :setStatus="setStatus" />
 
